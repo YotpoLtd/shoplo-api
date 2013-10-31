@@ -18,7 +18,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Configure:
+```ruby
+
+Shoplo.configure do |conf|
+  conf.api_key = 'api_key'
+  conf.secret = 'secret'
+end
+```
+
+Create a client, and use it to call the Shoplo API.
+
+```ruby
+
+client = Shoplo::Client.new('access_token', 'token_secret')
+
+client.get_shop
+
+client.get_products
 
 ## Contributing
 

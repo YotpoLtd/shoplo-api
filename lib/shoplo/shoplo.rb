@@ -1,9 +1,26 @@
 require 'shoplo/api/client'
+require 'shoplo/api/version'
 
 module Shoplo
   class << self
-    def client(params)
-      @client ||= Shoplo::Client.new(params)
+    # @!attribute api_key
+    # @return [String] the API key that is registered with Shoplo
+    attr_accessor :api_key
+
+    # @!attribute secret
+    # @return [String] the secret that is registered with Shoplo
+    attr_accessor :secret
+
+    # Configuration interface of the gem
+    #
+    # @yield [self] to accept configuration settings
+    def configure
+      yield self
+      true
+    end
+
+    def client(access_token, token_secret)
+      @client ||= Shoplo::Client.new(access_token, token_secret)
     end
 
     #

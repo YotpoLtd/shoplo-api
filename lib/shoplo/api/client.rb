@@ -13,20 +13,18 @@ module Shoplo
     include Shoplo::API::Product
     include Shoplo::API::Shop
 
-    def initialize(configuration)
-      @configuration = configuration.dup
+    def initialize(access_token, token_secret)
+      @access_token, @token_secret = access_token, token_secret
     end
 
     def consumer
-      raise InvalidParams.new('Consumer credentials are empty') unless @configuration[:consumer_key] && @configuration[:consumer_secret]
-
-      @consumer ||= OAuth::Consumer.new(@configuration[:consumer_key], @configuration[:consumer_secret],
+      @consumer ||= OAuth::Consumer.new(Shoplo.api_key, Shoplo.secret,
         { site: 'http://api.shoplo.com/services' }
       )
     end
 
     def connection
-      @connection ||= OAuth::AccessToken.new(consumer, @configuration[:token], @configuration[:token_secret])
+      @connection ||= OAuth::AccessToken.new(consumer, @access_token, @token_secret)
     end
 
     def connection=(new_connection)

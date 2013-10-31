@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['maxim@yotpo.com']
   spec.description   = %q{Ruby wrapper for shoplo API - written by Yotpo}
   spec.summary       = %q{Ruby wrapper for shoplo API - written by Yotpo}
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/YotpoLtd/shoplo-api'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
