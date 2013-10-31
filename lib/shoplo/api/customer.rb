@@ -1,5 +1,5 @@
 module Shoplo
-  class API
+  module API
     module Customer
       def get_customers(params = {})
         get_content('customers', params)

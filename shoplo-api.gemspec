@@ -5,7 +5,7 @@ require 'shoplo/api/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'shoplo-api'
-  spec.version       = Shoplo::Api::VERSION
+  spec.version       = Shoplo::API::VERSION
   spec.authors       = ['Max Gulyaev']
   spec.email         = ['maxim@yotpo.com']
   spec.description   = %q{Ruby wrapper for shoplo API - written by Yotpo}

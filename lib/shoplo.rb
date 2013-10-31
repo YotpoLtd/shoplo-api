@@ -1,4 +1,4 @@
-require 'shoplo/api/client'
+require 'shoplo/client'
 require 'shoplo/api/version'
 
 module Shoplo
