@@ -36,6 +36,7 @@ client = Shoplo::Client.new('access_token', 'token_secret')
 client.get_shop
 
 client.get_products
+```
 
 ## Contributing
 
