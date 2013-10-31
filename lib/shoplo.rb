@@ -1,5 +1,5 @@
 require 'shoplo/client'
-require 'shoplo/api/version'
+require 'shoplo/version'
 
 module Shoplo
   class << self

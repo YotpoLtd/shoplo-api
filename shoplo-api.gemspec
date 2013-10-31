@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'shoplo/api/version'
+require 'shoplo/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'shoplo-api'
-  spec.version       = Shoplo::API::VERSION
+  spec.version       = Shoplo::VERSION
   spec.authors       = ['Max Gulyaev']
   spec.email         = ['maxim@yotpo.com']
   spec.description   = %q{Ruby wrapper for shoplo API - written by Yotpo}
