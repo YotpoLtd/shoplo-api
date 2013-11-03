@@ -1,5 +1,6 @@
 require 'oauth'
 require 'oj'
+require 'uri'
 
 require 'shoplo/api/customer'
 require 'shoplo/api/order'
@@ -34,7 +35,7 @@ module Shoplo
     def get_content(type, params = {})
       id = params.delete(:id).to_i
       id = '' if id <= 0
-      response = connection.get("/#{type}/#{id}", params)
+      response = connection.get("/#{type}/#{id}?#{URI.encode_www_form(params)}")
       json = Oj.load(response.body, mode: :compat)
 
       raise HTTPUnauthorized.new(json['error_msg']) unless json['error'].nil?
