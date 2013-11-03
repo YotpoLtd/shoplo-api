@@ -35,9 +35,14 @@ module Shoplo
       id = params.delete(:id).to_i
       id = '' if id <= 0
       response = connection.get("/#{type}/#{id}", params)
-      Oj.load(response.body, mode: :compat).values.first
+      json = Oj.load(response.body, mode: :compat)
+
+      raise HTTPUnauthorized.new(json['error_msg']) unless json['error'].nil?
+
+      json.values.first
     end
   end
 
   class InvalidParams < Exception; end
+  class HTTPUnauthorized < Exception; end
 end
