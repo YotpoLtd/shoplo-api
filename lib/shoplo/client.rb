@@ -35,7 +35,11 @@ module Shoplo
     def get_content(type, params = {})
       id = params.delete(:id).to_i
       id = '' if id <= 0
-      response = connection.get("/#{type}/#{id}?#{URI.encode_www_form(params)}")
+      _uri = "/#{type}"
+      _uri += "/#{id}" unless id.to_s.empty?
+      _params = URI.encode_www_form(params)
+      _uri += "?#{_params}" unless params.to_s.empty?
+      response = connection.get(_uri)
       json = Oj.load(response.body, mode: :compat)
 
       raise HTTPUnauthorized.new(json['error_msg']) unless json['error'].nil?
