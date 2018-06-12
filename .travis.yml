@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+- 2.2
+- 2.3
+deploy:
+  provider: rubygems
+  gem: shoplo-api
+  on:
+    branch: master
+    repo: YotpoLtd/shoplo-api
+    rvm: 2.3
+  api_key:
+    secure: ownc9XVwmDswMaVGFHX4HRpbDn6lcN6Td74TdERKibyAT+Yrm4k16gY0EKEqQb2Bo5PprzQnKvjU8evVlVhTyncRZPuz99IznJYiu+i1OA/d4RsaWvr7i0wkAzD/TXxPtONF+FXn6RIjlxc7ZY0VCcMKGF9DNhUtekWk/FUlhj0=
